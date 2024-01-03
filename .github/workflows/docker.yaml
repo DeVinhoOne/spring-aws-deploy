@@ -6,7 +6,6 @@ on:
       imageVersion:
         description: Docker image version
         required: true
-        type: environment
 
 jobs:
   push_to_registry:
