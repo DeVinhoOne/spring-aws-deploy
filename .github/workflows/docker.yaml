@@ -1,6 +1,12 @@
 name: Docker build and push
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      imageVersion:
+        description: Docker image version
+        required: true
+        type: environment
 
 jobs:
   push_to_registry:
@@ -21,7 +27,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.DOCKER_NAMESPACE }}/${{ secrets.DOCKER_REPO }}
-          tags: ${{ inputs.image_version }}
+          tags: ${{ inputs.imageVersion }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
