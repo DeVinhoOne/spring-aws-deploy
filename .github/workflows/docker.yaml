@@ -1,4 +1,4 @@
-name: Build Docker image and publish it to Docker Hub
+name: Docker build and push
 
 on: workflow_dispatch
 
@@ -28,5 +28,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: test-tag
+          labels: test-label
