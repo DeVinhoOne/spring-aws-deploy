@@ -21,7 +21,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.DOCKER_NAMESPACE }}/${{ secrets.DOCKER_REPO }}
-          tags: '${{ github.event.inputs.image_version }}'
+          tags: ${{ inputs.image_version }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
